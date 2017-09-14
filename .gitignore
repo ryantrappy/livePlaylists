@@ -4,13 +4,13 @@
 
 *.xml
 .DS_Store
-live-playlists/.DS_Store
-live-playlists/www/.DS_Store
+.DS_Store
+www/.DS_Store
 
-live-playlists/www/lib/
-live-playlists/node_modules/
-live-playlists/platforms/
-live-playlists/plugins/
-live-playlists/.idea/
-
+www/lib/
+node_modules/
+platforms/
+plugins/
+.idea/
+package-lock.json
 
