@@ -13,6 +13,7 @@
         "ionic": "3.10.3"
     },
     "dependencies": {
+        "cordova-browser": "^4.1.0",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
@@ -31,6 +32,7 @@
             "ionic-plugin-keyboard": {}
         },
         "platforms": [
+            "browser",
             "ios"
         ]
     }
