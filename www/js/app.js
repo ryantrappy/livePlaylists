@@ -40,12 +40,12 @@ angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlay
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.playlist', {
+    url: '/playlist/:listid/:userid/:listname',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-playlist': {
+        templateUrl: 'templates/tab-playlist.html',
+        controller: 'PlaylistCtrl'
       }
     }
   })

@@ -4,6 +4,22 @@
     <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle>
+      <div>
+        <button ng-click="getSpotifyAuthTest()">Get Token</button>
+        <span>{{spotifyAuthToken}}</span>
+      </div>
+      <div>
+        <button ng-click="getSpotifyPlaylists()">Get playlists</button>
+        <!--<span>{{spotifyPlaylists}}</span>-->
+      </div>
+
+      <ion-item ng-repeat="list in spotifyPlaylists">
+        {{list.name}}
+      </ion-item>
+
+      <ion-item ng-repeat="list in spotifyPlaylists"  ui-sref="playlist({listid: list.id, userid: list.owner.id, listname: list.name})">
+        {{list.name}}
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

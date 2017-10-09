@@ -1,4 +1,4 @@
-angular.module('livePlaylists.services', [])
+angular.module('livePlaylists')
 .service("loginService", function($http, Spotify, spotifyURL, $cordovaOauth, client_ID) {
 
     /******************************/
@@ -19,6 +19,12 @@ angular.module('livePlaylists.services', [])
     //             // failCB(data);
     //         });
     // };
+    var spotifyAuthToken = window.localStorage.getItem('spotify-token');
+    var userInfo = {"spotifyPlaylists":undefined};
+
+    var getSpotifyAuthToken = function(){
+        return spotifyAuthToken;
+    };
 
     /******************************/
     /* This function connects to spotify for our application*/
@@ -31,6 +37,7 @@ angular.module('livePlaylists.services', [])
         console.log(window.location);
         $cordovaOauth.spotify(client_ID, ['user-read-private', 'playlist-read-private']).then(function(result){
             window.localStorage.setItem('spotify-token', result.access_token);
+            spotifyAuthToken = result.access_token;
             Spotify.setAuthToken(result.access_token);
             return updateInfo();
         },
@@ -42,6 +49,8 @@ angular.module('livePlaylists.services', [])
     var updateInfo = function() {
         Spotify.getCurrentUser().then(function (data) {
             console.log(data);
+            getUserPlaylists(data.id);
+            console.log(data);
             return data;
         }, function(error) {
             //Retry connecting to spotify
@@ -50,28 +59,42 @@ angular.module('livePlaylists.services', [])
     };
 
 
+    var getUserPlaylists = function(userid) {
+        Spotify.getUserPlaylists(userid).then(function (data) {
+            console.log("got playlists");
+            console.log(data);
+            userInfo.spotifyPlaylists = data.data.items;
+        });
+        console.log(userInfo.spotifyPlaylists);
+    };
 
-    var testConnect = function(){
-    //    https://accounts.spotify.com/authorize?client_id=1f9d58e4c14e488ba401b7c34712822a&response_type=token&redirect_uri =www.google.com
-        var redirectLoc = encodeURI("https://www.google.com");
-        $http({
-            method: "GET",
-            url: "https://accounts.spotify.com/authorize?client_id=1f9d58e4c14e488ba401b7c34712822a&response_type=token&redirect_uri=" + redirectLoc,
-            headers:{
-                "Access-Control-Allow-Origin":"http://*",
-                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-            }
-        }).then(function successCallback(data) {
-                console.log("success");
-                console.log(data);
-                // successCB(data);
-            },
-            function errorCallBack(data) {
-                console.log("failed");
-                console.log(data);
-                // failCB(data);
-            });
+    var getSpotifyPlaylists = function(){
+        return userInfo.spotifyPlaylists;
     }
+
+
+
+    // var testConnect = function(){
+    // //    https://accounts.spotify.com/authorize?client_id=1f9d58e4c14e488ba401b7c34712822a&response_type=token&redirect_uri =www.google.com
+    //     var redirectLoc = encodeURI("https://www.google.com");
+    //     $http({
+    //         method: "GET",
+    //         url: "https://accounts.spotify.com/authorize?client_id=1f9d58e4c14e488ba401b7c34712822a&response_type=token&redirect_uri=" + redirectLoc,
+    //         headers:{
+    //             "Access-Control-Allow-Origin":"http://*",
+    //             "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+    //         }
+    //     }).then(function successCallback(data) {
+    //             console.log("success");
+    //             console.log(data);
+    //             // successCB(data);
+    //         },
+    //         function errorCallBack(data) {
+    //             console.log("failed");
+    //             console.log(data);
+    //             // failCB(data);
+    //         });
+    // };
 
 
     //All functions go here to allow them outside access from the service
@@ -81,6 +104,12 @@ angular.module('livePlaylists.services', [])
         },
         updateInfo:function(){
             return updateInfo();
+        },
+        getSpotifyAuthToken:function(){
+            return getSpotifyAuthToken();
+        },
+        getSpotifyPlaylists:function () {
+            return getSpotifyPlaylists()
         }
     };
 });
