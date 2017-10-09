@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlaylists.services'])
+angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlaylists.services', 'spotify', 'ngCordovaOauth'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,15 +40,15 @@ angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlay
 
   // Each tab has its own nav history stack:
 
-  // .state('tab.dash', {
-  //   url: '/dash',
-  //   views: {
-  //     'tab-dash': {
-  //       templateUrl: 'templates/tab-dash.html',
-  //       controller: 'DashCtrl'
-  //     }
-  //   }
-  // })
+  .state('tab.dash', {
+    url: '/dash',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
 
   .state('tab.chats', {
       url: '/chats',
@@ -80,7 +80,17 @@ angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlay
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/chats');
+  $urlRouterProvider.otherwise('/tab/account');
 
 })
     .value("spotifyURL","https://api.spotify.com/v1")
+    .value("client_ID","1f9d58e4c14e488ba401b7c34712822a")
+    .value("callback_uri","https://api.spotify.com/v1")
+// .config(function (SpotifyProvider) {
+//     SpotifyProvider.setClientId("1f9d58e4c14e488ba401b7c34712822a");
+//     SpotifyProvider.setRedirectUri(callback_uri);
+//     SpotifyProvider.setScope('user-read-private playlist-read-private playlist-modify-private playlist-modify-public');
+//     // If you already have an auth token
+//     SpotifyProvider.setAuthToken('<AUTH_TOKEN>');
+// })
+
