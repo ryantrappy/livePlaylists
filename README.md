@@ -1,26 +1,29 @@
-Ionic App Base
+Live Playlists
 ==============
 
-A starting project for Ionic that optionally supports using custom SCSS.
+A aux .
 
 ## Using this project
 
-We recommend using the [Ionic CLI](https://github.com/ionic-team/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
-
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
-
+First time installation
 ```bash
-$ npm install -g ionic cordova
+./bin/install_script.sh
 ```
 
-Then run:
-
+If Ionic/Cordova aren't install run this command:
 ```bash
-$ ionic start myProject tabs --type=ionic1
+npm install -g ionic cordova
 ```
 
-More info on this can be found on the Ionic [Getting Started](https://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/ionic-team/ionic-cli) repo.
+Install npm dependencies:
 
-## Issues
+```bash
+npm install
+```
 
-Issues have been disabled on this repo. If you do find an issue or have a question, consider posting it on the [Ionic Forum](https://forum.ionicframework.com/). If there is truly an error, follow our guidelines for [submitting an issue](https://ionicframework.com/submit-issue/) to the main Ionic repository.
+Install bower dependencies:
+
+```bash
+bower install
+```
+
