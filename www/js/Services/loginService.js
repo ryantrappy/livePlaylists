@@ -48,8 +48,8 @@ angular.module('livePlaylists')
 
     var updateInfo = function() {
         Spotify.getCurrentUser().then(function (data) {
-            console.log(data);
-            getUserPlaylists(data.id);
+            console.log(data.data.id);
+            getUserPlaylists(data.data.id);
             console.log(data);
             return data;
         }, function(error) {
@@ -60,7 +60,12 @@ angular.module('livePlaylists')
 
 
     var getUserPlaylists = function(userid) {
-        Spotify.getUserPlaylists(userid).then(function (data) {
+        console.log("The user ID " + userid);
+        var options = {
+            "limit":50,
+            "offset":0
+        };
+        Spotify.getUserPlaylists(userid, options).then(function (data) {
             console.log("got playlists");
             console.log(data);
             userInfo.spotifyPlaylists = data.data.items;

@@ -31,7 +31,11 @@ angular.module('livePlaylists')
         console.log("currently");
         console.log($scope.spotifyPlaylists);
         if($scope.spotifyPlaylists == undefined){
-            Spotify.getUserPlaylists(userid).then(function (data) {
+            var options = {
+                "limit":50,
+                "offset":0
+            };
+            Spotify.getUserPlaylists(userid, options).then(function (data) {
                 console.log("got playlists");
                 console.log(data);
                 $scope.spotifyPlaylists = data.data.items;
@@ -43,7 +47,7 @@ angular.module('livePlaylists')
     $scope.getSpotifyPlaylists = function(){
         Spotify.getCurrentUser().then(function (data) {
             console.log(data);
-            getUserPlaylists(data.id);
+            getUserPlaylists(data.data.id);
         }, function(error) {
             //Retry connecting to spotify
             loginService.connectToSpotify();
