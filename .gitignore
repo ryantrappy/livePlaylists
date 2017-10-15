@@ -7,7 +7,7 @@
 .DS_Store
 www/.DS_Store
 
-www/lib/*
+www/lib/ionic*
 node_modules/
 platforms/
 plugins/

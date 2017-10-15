@@ -7,10 +7,10 @@ angular.module('livePlaylists')
         if (storedToken !== null) {
             //if the user has logged in before, get new auth token
             Spotify.setAuthToken(storedToken);
-            loginService.updateInfo();
+            loginService.updateInfo($scope.getSpotifyPlaylists);
         } else {
             //if user hasn't logged in ever, log them in
-            loginService.connectToSpotify();
+            loginService.connectToSpotify($scope.getSpotifyPlaylists);
         }
     });
 
@@ -59,6 +59,7 @@ angular.module('livePlaylists')
             loginService.connectToSpotify();
         });
     }
+
 
 
 
