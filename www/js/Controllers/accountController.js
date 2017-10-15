@@ -1,6 +1,6 @@
 angular.module('livePlaylists')
 
-.controller('AccountCtrl', function($scope, loginService, Spotify, $ionicPlatform) {
+.controller('AccountCtrl', function($scope, loginService, Spotify, $ionicPlatform, $state) {
     //This function will run when the app loads
     $ionicPlatform.ready(function() {
         var storedToken = window.localStorage.getItem('spotify-token');
@@ -24,6 +24,12 @@ angular.module('livePlaylists')
 
     $scope.getSpotifyAuthTest = function(){
         $scope.spotifyAuthToken = loginService.getSpotifyAuthToken();
+    };
+
+    $scope.goToPlaylist = function(listid, userid, listname){
+        $state.is();
+        console.log("listid " + listid + " userid " + userid + " listname " + listname);
+        $state.go("tab.playlist", {"listid": listid, "userid": userid, "listname": listname})
     };
 
 

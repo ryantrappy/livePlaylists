@@ -43,7 +43,7 @@ angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlay
   .state('tab.playlist', {
     url: '/playlist/:listid/:userid/:listname',
     views: {
-      'tab-playlist': {
+      'tab-account': {
         templateUrl: 'templates/tab-playlist.html',
         controller: 'PlaylistCtrl'
       }
