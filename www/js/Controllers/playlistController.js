@@ -25,6 +25,11 @@ angular.module('livePlaylists')
                 console.log("event done");
                 console.log(data);
             });
+            cordova.plugins.spotify.resume().then(function(data){
+                console.log("resuming");
+                console.log(data);
+                console.log(events)
+            });
             // events.listeners('connectionmessage', true);
 
 
