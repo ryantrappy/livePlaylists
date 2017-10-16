@@ -37,20 +37,10 @@ angular.module('livePlaylists')
                 console.log("event done");
                 console.log(data);
             });
-            $scope.spotifySession.resume().then(function(data){
-                console.log("resuming");
-                console.log(data);
-                console.log(events)
-            },
-            function(data){
-                console.log("failed??");
-                console.log(data);
-            });
-            // events.listeners('connectionmessage', true);
-
 
             // $scope.audio.src = trackInfo.track.preview_url;
             // $scope.audio.play();
+            $scope.audioPlaying = true;
         };
 
         $scope.openSpotify = function(link) {
@@ -58,15 +48,19 @@ angular.module('livePlaylists')
         };
 
         $scope.stop = function() {
-            if ($scope.audio.src) {
-                $scope.audio.pause();
+            // if ($scope.audio.src) {
+            //     $scope.audio.pause();
+            // }
+            if($scope.audioPlaying){
+                $scope.spotifySession.pause();
             }
         };
 
         $scope.play = function() {
-            if ($scope.audio.src) {
-                $scope.audio.play();
-            }
+            $scope.spotifySession.resume();
+            // if ($scope.audio.src) {
+            //     $scope.audio.play();
+            // }
         };
 
     });
