@@ -27,7 +27,7 @@ angular.module('livePlaylists')
     };
 
     $scope.goToPlaylist = function(listid, userid, listname){
-        $state.is();
+        // $state.is();
         console.log("listid " + listid + " userid " + userid + " listname " + listname);
         $state.go("tab.playlist", {"listid": listid, "userid": userid, "listname": listname})
     };
