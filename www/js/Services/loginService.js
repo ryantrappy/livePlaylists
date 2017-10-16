@@ -35,7 +35,7 @@ angular.module('livePlaylists')
         //https://liveplaylists-613c5.firebaseapp.com/callback"
         //https://liveplaylists-613c5.firebaseapp.com/callback#access_token=BQDc3xs1YjzLQd0zXfe0GXxW5UEICB-EjafwnZpl2yQJpDsH1F6CAt0BkVwGkvgaRXvbApZ1TQkHx0DGD4LnAUXiqfXhMlpxouMEA6iPw716bn4pLHn3u7wfCQSVB0SDBnS9GYquzsdWaXSzlJbVm3PlpYaN6wH0zIMEzmGKEgRzMkQ&token_type=Bearer&expires_in=3600
         console.log(window.location);
-        $cordovaOauth.spotify(client_ID, ['user-read-private', 'playlist-read-private']).then(function(result){
+        $cordovaOauth.spotify(client_ID, ['user-read-private', 'playlist-read-private', 'streaming', 'user-read-currently-playing']).then(function(result){
             window.localStorage.setItem('spotify-token', result.access_token);
             spotifyAuthToken = result.access_token;
             Spotify.setAuthToken(result.access_token);
