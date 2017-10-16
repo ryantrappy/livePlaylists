@@ -1,0 +1,7 @@
+* text eol=lf
+
+*.png  binary
+*.gzip binary
+*.ttf binary
+*.eot binary
+screen binary
