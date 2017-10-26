@@ -1,0 +1,30 @@
+<ion-view view-title="Settings">
+  <ion-content>
+      <div>
+            <!--Button to login to spotify-->
+          <div ng-if="loginKeys.spotify == undefined" class="loginButton">
+            <button class="spotifyLogin " ng-click="spotifyLogin()">LOGIN TO SPOTIFY</button>
+          </div>
+
+          <div ng-if="loginKeys.spotify != undefined" class="loginButton">
+              <button class="spotifyLogin loginButton" ng-click="spotifyLogin()">LOGGED IN TO SPOTIFY</button>
+          </div>
+
+
+          <div ng-if="loginKeys.appleMusic == undefined">
+            <button class="appleMusicLogin loginButton" ng-click="appleMusicLogin()">Login to Apple Music</button>
+          </div>
+          <div ng-if="loginKeys.appleMusic != undefined">
+              <button class="appleMusicLogin loginButton" ng-click="appleMusicLogin()">Logged in to Apple Music</button>
+          </div>
+
+          <div ng-if="loginKeys.soundCloud == undefined">
+            <button class="soundCloudLogin loginButton" ng-click="soundCloudLogin()">Login to SoundCloud</button>
+          </div>
+          <div ng-if="loginKeys.soundCloud != undefined">
+              <button class="soundCloudLogin loginButton" ng-click="soundCloudLogin()">Logged in to SoundCloud</button>
+          </div>
+      </div>
+
+  </ion-content>
+</ion-view>

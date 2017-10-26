@@ -1,1 +1,21 @@
 /* Empty. Add your own CSS if you like */
+
+.loginButton{
+    margin: auto;
+}
+
+.spotifyLogin{
+    background-color: #1db954;
+    color: #FFFFFF;
+    border-radius: 500px;
+    line-height: 1;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    height: 2em;
+    border-width: 0;
+    font-size: 14pt;
+    padding: 5px;
+}
