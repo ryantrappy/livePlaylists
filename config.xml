@@ -75,8 +75,12 @@
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
+        <config-file parent="NSAppleMusicUsageDescription" target="*-Info.plist">
+            <string>We want to play music</string>
+        </config-file>
     </platform>
     <preference name="SplashScreen" value="screen" />
+    <allow-navigation href="http://10.0.1.20:8100" />
     <engine name="ios" spec="^4.5.1" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
@@ -85,4 +89,5 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-spotify" spec="^0.5.2" />
+    <plugin name="cordova-plugin-apple-music" spec="^0.2.5" />
 </widget>

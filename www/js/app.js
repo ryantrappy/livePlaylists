@@ -20,6 +20,16 @@ angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlay
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    appleMusicPlugin.init(
+        function(data){
+            console.log(data);
+            console.log("inited"
+
+
+            )
+        },
+        function(data){console.log(data);console.log("errored")
+        })
   });
 })
 

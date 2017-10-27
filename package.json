@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "cordova-ios": "^4.5.1",
+    "cordova-plugin-apple-music": "^0.2.5",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-inappbrowser": "^1.7.1",
     "cordova-plugin-splashscreen": "^4.0.3",
@@ -30,7 +31,8 @@
       "cordova-plugin-whitelist": {},
       "ionic-plugin-keyboard": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-spotify": {}
+      "cordova-spotify": {},
+      "cordova-plugin-apple-music": {}
     },
     "platforms": [
       "ios"
