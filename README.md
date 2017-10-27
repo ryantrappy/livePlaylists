@@ -249,6 +249,7 @@ Running on Android Emulator or device
 ```bash
 avdmanager list avds | grep Name:
 emulator -avd "Nexus_4_API_22" &  # using one of the names listed above
+cordova emulate android --target="Nexus_4_API_22" # Whatever the name of your emulator is
 ```
 
 
