@@ -41,7 +41,7 @@ angular.module('livePlaylists')
 
 
     var playAppleMusic = function(songObject){
-        appleMusicPlugin.playTrack(songObject.trackViewUrl,
+        appleMusicPlugin.playTrack(songObject.trackId,
             function(data){console.log("playing from playAppleMusic")},
             function(data){console.log(data)})
     };
