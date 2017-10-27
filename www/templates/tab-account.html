@@ -7,8 +7,22 @@
       </div> -->
       <div>
         <button ng-click="getSpotifyPlaylists()">Get playlists</button>
-<!--         <span>{{spotifyPlaylists}}</span>
- -->      </div>  
+      </div>
+
+        <form ng-submit="search(searchString)">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Search for music" ng-model="searchString">
+                </label>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-block button-positive">Search</button>
+            </div>
+        </form>
+
+        <ion-item ng-repeat="song in searchResults.appleMusic" ng-click="playMusic(song)">
+            <img src="{{song.artworkUrl60}}">{{song.collectionName}}
+        </ion-item>
 
       <!--<ion-item ng-repeat="list in spotifyPlaylists">-->
         <!--{{list.name}}-->

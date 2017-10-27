@@ -1,5 +1,5 @@
 angular.module('livePlaylists')
-    .controller('SettingsCtrl', function($scope, Spotify, loginService, client_ID) {
+    .controller('SettingsCtrl', function($scope, Spotify, loginService, client_ID, itunesURL, accountService) {
 
         $scope.loginKeys = {
             "spotify":undefined,
@@ -23,13 +23,14 @@ angular.module('livePlaylists')
                     appleMusicPlugin.playTrack(trackId,
                         function(data){console.log("playing")},
                         function(data){console.log(data)})
-
                     //https://itunes.apple.com/us/artist/jack-johnson/id909253?uo=4
                 }, function(data){
                     console.log(data);
                     console.log("failed to authorize");
                 })
         };
+
+        // $scope.searchResults = accountService.appleSearch("selena gomez");
 
         $scope.soundCloudLogin = function(){
 

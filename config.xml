@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="livePlaylistsTesting" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>AUX</name>
+    <description>An AUX cord app</description>
+    <author email="hi@ionicframework" href="http://ionicframework.com/">Da bois</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://localhost:*" />
@@ -78,16 +78,18 @@
         <config-file parent="NSAppleMusicUsageDescription" target="*-Info.plist">
             <string>We want to play music</string>
         </config-file>
+        <key>signingStyle</key>
+        <string>manual</string>
     </platform>
     <preference name="SplashScreen" value="screen" />
     <allow-navigation href="http://10.0.1.20:8100" />
-    <engine name="ios" spec="^4.5.1" />
-    <plugin name="cordova-plugin-device" spec="^1.1.4" />
+    <engine name="ios" spec="^4.5.2" />
+    <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
-    <plugin name="cordova-plugin-statusbar" spec="^2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
-    <plugin name="cordova-spotify" spec="^0.5.2" />
+    <plugin name="cordova-spotify" spec="^0.5.4" />
     <plugin name="cordova-plugin-apple-music" spec="^0.2.5" />
 </widget>

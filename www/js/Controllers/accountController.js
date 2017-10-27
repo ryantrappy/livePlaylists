@@ -1,6 +1,6 @@
 angular.module('livePlaylists')
 
-.controller('AccountCtrl', function($scope, loginService, Spotify, $ionicPlatform, $state) {
+.controller('AccountCtrl', function($scope, loginService, Spotify, $ionicPlatform, $state, accountService) {
     //This function will run when the app loads
     $ionicPlatform.ready(function() {
         var storedToken = window.localStorage.getItem('spotify-token');
@@ -17,9 +17,37 @@ angular.module('livePlaylists')
 
     //loginService.connectToSpotify();
     //loginService.testConnect();
+    $scope.searchResults = {
+        "appleMusic":[],
+        "spotify":[],
+        "soundCloud":[]
+    }
 
-    $scope.settings = {
-        enableFriends: true
+    var searchItunes = function(searchString){
+        var successCallback = function(data){
+                console.log("success getting itunes stuffs");
+                console.log(data);
+                // successCB(data);
+                $scope.searchResults.appleMusic = data.data.results;
+                console.log($scope.searchResults.appleMusic);
+        };
+        accountService.appleSearch(searchString,successCallback);
+    };
+
+    $scope.search = function(searchString){
+        //Where all the searches are sent out
+        searchItunes(searchString)
+    };
+
+
+    var playAppleMusic = function(songObject){
+        appleMusicPlugin.playTrack(songObject.trackViewUrl,
+            function(data){console.log("playing from playAppleMusic")},
+            function(data){console.log(data)})
+    };
+
+    $scope.playMusic = function(songObject){
+        playAppleMusic(songObject)
     };
 
     $scope.getSpotifyAuthTest = function(){

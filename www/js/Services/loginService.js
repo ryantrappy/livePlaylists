@@ -48,9 +48,9 @@ angular.module('livePlaylists')
 
     var updateInfo = function() {
         Spotify.getCurrentUser().then(function (data) {
-            console.log(data.data.id);
+            // console.log(data.data.id);
             getUserPlaylists(data.data.id);
-            console.log(data);
+            // console.log(data);
             return data;
         }, function(error) {
             //Retry connecting to spotify
@@ -70,7 +70,7 @@ angular.module('livePlaylists')
             console.log(data);
             userInfo.spotifyPlaylists = data.data.items;
         });
-        console.log(userInfo.spotifyPlaylists);
+        // console.log(userInfo.spotifyPlaylists);
     };
 
     var getSpotifyPlaylists = function(){

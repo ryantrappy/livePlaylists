@@ -96,6 +96,7 @@ angular.module('livePlaylists', ['ionic', 'livePlaylists.controllers', 'livePlay
     .value("spotifyURL","https://api.spotify.com/v1")
     .value("client_ID","1f9d58e4c14e488ba401b7c34712822a")
     .value("callback_uri","https://api.spotify.com/v1")
+    .value("itunesURL", "https://itunes.apple.com/search?")
 // .config(function (SpotifyProvider) {
 //     SpotifyProvider.setClientId("1f9d58e4c14e488ba401b7c34712822a");
 //     SpotifyProvider.setRedirectUri(callback_uri);
